@@ -9,7 +9,7 @@ class GoogleSearch(unittest.TestCase):
         self.driver = webdriver.Firefox()
         self.driver.get('http://www.yandex.ru')
 
-    def test_01(self):
+    def test_01_yandex_search(self):
         driver = self.driver
         print("1\n")
         input_field = driver.find_element_by_id('text')
@@ -23,16 +23,14 @@ class GoogleSearch(unittest.TestCase):
         driver.find_element_by_class_name('suggest2__content')
         input_field.send_keys(Keys.ENTER)
         print("4\n")
-
         time.sleep(2)
         print("5\n")
-
         titles = driver.find_elements_by_class_name('r')
         for title in titles:
             assert "tensor.ru" in title.text.lower()
             time.sleep(4)
 
-    def test_02(self):
+    def test_02_yandex_image(self):
         driver = self.driver
         print("1")
         driver.find_element_by_link_text("Картинки").click()
