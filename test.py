@@ -20,7 +20,7 @@ class GoogleSearch(unittest.TestCase):
         input_field.send_keys(Keys.ARROW_DOWN)
         print("3-2\n")
         time.sleep(2)
-        input_fields = driver.find_element_by_class_name('suggest2__content')
+        driver.find_element_by_class_name('suggest2__content')
         input_field.send_keys(Keys.ENTER)
         print("4\n")
 
@@ -42,18 +42,18 @@ class GoogleSearch(unittest.TestCase):
         # print(st)
         if st == "https://yandex.ru/images/":
             print("step")
-            input_field = driver.find_element_by_class_name('cl-teaser__link').click()
+            driver.find_element_by_class_name('cl-teaser__link').click()
             time.sleep(2)
             img1 = driver.current_url
             # print(img1)
-            input_fields = driver.find_element_by_class_name('layout__nav__right').click()
+            driver.find_element_by_class_name('layout__nav__right').click()
             img2 = driver.current_url
             time.sleep(2)
             # print(img2)
-            if img1!=img2:
-                input_fields = driver.find_element_by_class_name('layout__nav__left').click()
+            if img1 != img2:
+                driver.find_element_by_class_name('layout__nav__left').click()
                 time.sleep(2)
-                if img1==driver.current_url:
+                if img1 == driver.current_url:
                     print("step2")
                 else:
                     print("first image is modify!")
@@ -62,19 +62,9 @@ class GoogleSearch(unittest.TestCase):
         else:
             print("page image is not correct!")
 
-
-
-
-
-
-
-
-
-
-
-
     def tearDown(self):
         self.driver.quit()
 
-if __name__=='__main__':
+
+if __name__ == '__main__':
     unittest.main()
